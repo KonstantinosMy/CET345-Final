@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Scientist
+  - Scientist2
   layers:
   - Default
   - TransparentFX
