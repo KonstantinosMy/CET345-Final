@@ -19,6 +19,8 @@ public class Scientist : PortalTraveller
         agent.autoBraking = false;
 
         GotoNextPoint();
+
+
     }
 
 
@@ -48,7 +50,9 @@ public class Scientist : PortalTraveller
             StartCoroutine(waitSomeTime());
             
         }
-            
+
+     
+
     }
     IEnumerator waitSomeTime()
     {

@@ -7,18 +7,21 @@ public class TimeControl : MonoBehaviour
     public GameObject[] iconList;
     private float xDirection;
     private float yDirection;
-
+    public LayerMask IgnoreMe;
     public Outline outline;
     private RaycastHit hit;
     private GameObject lastObjectHit;
     private bool isHovered = false;
     private bool isSelected = false;
     #endregion
+
     void Update()
-    {
+    {   
+     
         //raycasting
         xDirection = Input.GetAxis("Mouse X");
         yDirection = Input.GetAxis("Mouse Y");
+
 
         transform.Rotate(-yDirection, xDirection, 0);
 
@@ -62,6 +65,7 @@ public class TimeControl : MonoBehaviour
                 clock.localTimeScale = 2; // Accelerate
             }
         }
+
     }
 
     private void clearIcons()
@@ -94,31 +98,23 @@ public class TimeControl : MonoBehaviour
     }
     void CheckIfRayCastHit()
     {
-        
-            if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        {
+            Debug.DrawRay(transform.position, transform.forward, Color.green);
+            if (isSelected == false)
             {
-
-                if (isSelected == false)
+                if (hit.collider.gameObject.tag == "Scientist")
                 {
-                    if (hit.collider.gameObject.tag == "Scientist")
-                    {
-                        hit.collider.gameObject.GetComponent<Outline>().OutlineWidth = 5f;
-                        isHovered = true;
-                        lastObjectHit = hit.collider.gameObject;
+                    hit.collider.gameObject.GetComponent<Outline>().OutlineWidth = 5f;
+                    isHovered = true;
+                    lastObjectHit = hit.collider.gameObject;
                 }
-                    else if (hit.collider.gameObject.tag != "Scientist")
-                    {
-                        lastObjectHit.GetComponent<Outline>().OutlineWidth = 0f;
-                        isHovered = false;
-                    }
+                else if (hit.collider.gameObject.tag != "Scientist")
+                {
+                    lastObjectHit.GetComponent<Outline>().OutlineWidth = 0f;
+                    isHovered = false;
                 }
-
-
             }
-        
-       
+        }     
     }
-
-    
-
 }

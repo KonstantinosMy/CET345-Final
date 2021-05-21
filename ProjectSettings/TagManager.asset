@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Scientist
   - Scientist2
+  - Cube
+  - CubeGreen
+  - CubeYellow
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - IgnoreLayer
   - 
   - 
   - 

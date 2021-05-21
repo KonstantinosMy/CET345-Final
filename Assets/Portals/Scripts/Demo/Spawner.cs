@@ -2,25 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour {
+public class Spawner : MonoBehaviour
+{
+    public GameObject[] cubes;
+    public Vector3 spawnValues;
+    public float spawnWait;
+    public float spawnMostWait;
+    public float spawnLeastWait;
+    public int startWait;
+    public bool stop;
 
-    public bool spawnAtStart;
-    public GameObject prefab;
+    int randNum;
 
-    void Start () {
-        Debug.Log ("Press Space to spawn cubes");
-        if (spawnAtStart) {
-            Spawn ();
-        }
+    void Start()
+    {
+        StartCoroutine(waitSpawner());
     }
 
-    void Update () {
-        if (Input.GetKeyDown (KeyCode.Space)) {
-            Spawn ();
-        }
+    void Update()
+    {
+        spawnWait = Random.Range(spawnMostWait, spawnMostWait);
     }
 
-    void Spawn () {
-        Instantiate (prefab, transform.position, transform.rotation);
+    IEnumerator waitSpawner()
+    {
+        yield
+        return new WaitForSeconds(startWait);
+
+        while (!stop)
+        {
+            randNum = Random.Range(0, 3);
+
+
+            Instantiate(cubes[randNum],transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+
+            yield
+            return new WaitForSeconds(spawnWait);
+        }
     }
 }
