@@ -9,6 +9,13 @@ TagManager:
   - Cube
   - CubeGreen
   - CubeYellow
+  - Barrier
+  - Laser1
+  - Laser2
+  - BtnGreen
+  - BtnYellow
+  - BtnBlue
+  - BtnRed
   layers:
   - Default
   - TransparentFX
