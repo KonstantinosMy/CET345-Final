@@ -37,12 +37,10 @@ public class Time_Control_2 : MonoBehaviour
         AbilityControl();
 
 
-
         if (isSelected == true)
         {
             isSelected1 = false;
             Clock clock = Timekeeper.instance.Clock("Laser2");
-            Debug.Log("LASER 2 CAN BE TIME BENT");
  
             // Change its time scale on key press
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -80,7 +78,6 @@ public class Time_Control_2 : MonoBehaviour
         {
             isSelected = false;
             Clock clock = Timekeeper.instance.Clock("Laser1");
-            Debug.Log("LASER 1 CAN BE TIME BENT");
 
             // Change its time scale on key press
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -116,7 +113,6 @@ public class Time_Control_2 : MonoBehaviour
         }
         else if (isSelected == false || isSelected1 == false)
         {
-            Debug.Log("LASERS CAN NO LONGER BE TIME BENT");
             Clock clock = null;
         }
 
@@ -153,14 +149,12 @@ public class Time_Control_2 : MonoBehaviour
             {
                 outline.OutlineWidth = 5f;
                 isSelected = true;
-                Debug.Log("LASER 2 IS SELECTED");
 
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && isSelected == true)
             {
                 outline.OutlineWidth = 0f;
                 isSelected = false;
-                Debug.Log("LASER 2 IS DESELECTED");
             }
         }
         if (isHovered1 == true)
@@ -169,14 +163,12 @@ public class Time_Control_2 : MonoBehaviour
             {
                 outline1.OutlineWidth = 5f;
                 isSelected1 = true;
-                Debug.Log("LASER 1 IS SELECTED");
 
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && isSelected == true)
             {
                 outline1.OutlineWidth = 0f;
                 isSelected1 = false;
-                Debug.Log("LASER 1 IS DESELECTED");
             }
         }
     }
@@ -191,13 +183,11 @@ public class Time_Control_2 : MonoBehaviour
                 {
                    outline.OutlineWidth = 5f;
                     isHovered = true;
-                    Debug.Log("IS HOVERED");
                 }
                 else if (hit.collider.gameObject.tag != "Laser2")
                 {
                     outline.OutlineWidth = 0f;
                     isHovered = false;
-                    Debug.Log("LASER 2 IS NO LONGER HOVERED");
                 }
             }
             if (isSelected1 == false)
@@ -206,18 +196,18 @@ public class Time_Control_2 : MonoBehaviour
                 {
                     outline1.OutlineWidth = 5f;
                     isHovered1 = true;
-                    Debug.Log("LASER 1 IS HOVERED");
                 }
                 else if (hit.collider.gameObject.tag != "Laser1")
                 {
                     outline1.OutlineWidth = 0f;
                     isHovered1 = false;
-                    Debug.Log("LASER 1 IS NO LONGER HOVERED");
                 }
             }
         }
     }
 }
+
+
 
 /*
 public class Time_Control_2 : MonoBehaviour

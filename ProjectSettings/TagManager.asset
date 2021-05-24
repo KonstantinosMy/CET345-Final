@@ -16,6 +16,10 @@ TagManager:
   - BtnYellow
   - BtnBlue
   - BtnRed
+  - Blue
+  - Red
+  - Green
+  - Yellow
   layers:
   - Default
   - TransparentFX

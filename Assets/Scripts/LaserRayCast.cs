@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class LaserRayCast : MonoBehaviour
 {
-
+    RaycastHit hit;
     private LineRenderer lr;
+
+    public bool redHit = false;
+    public bool greenHit = false;
+    public bool blueHit = false;
+    public bool yellowHit = false;
     void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -14,8 +19,14 @@ public class LaserRayCast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckIfRayCastHit();
+
+    }
+
+    void CheckIfRayCastHit()
+    {
         lr.SetPosition(0, transform.position);
-        RaycastHit hit;
+
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
             if (hit.collider)
@@ -26,20 +37,28 @@ public class LaserRayCast : MonoBehaviour
             if (hit.collider.gameObject.tag == "Red")
             {
                 Debug.Log("Red hit");
+                redHit = true;
             }
             else if (hit.collider.gameObject.tag == "Green")
             {
                 Debug.Log("Green hit");
+                greenHit = true;
             }
             else if (hit.collider.gameObject.tag == "Blue")
             {
                 Debug.Log("Blue hit");
+                blueHit = true;
             }
             else if (hit.collider.gameObject.tag == "Yellow")
             {
                 Debug.Log("Yellow hit");
+                yellowHit = true;
             }
         }
         else lr.SetPosition(1, transform.forward * 5000);
+
+
     }
+
+   
 }

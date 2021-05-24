@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEditor.Animations;
+
 public class Scientist : PortalTraveller
 {
     public Transform[] points;
@@ -50,8 +51,6 @@ public class Scientist : PortalTraveller
             StartCoroutine(waitSomeTime());
             
         }
-
-     
 
     }
     IEnumerator waitSomeTime()
