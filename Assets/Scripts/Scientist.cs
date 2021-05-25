@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class Scientist : PortalTraveller
 {
@@ -57,7 +57,7 @@ public class Scientist : PortalTraveller
     {
         agent.isStopped = true;
         anim.SetBool("isWalking", false);
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
         GotoNextPoint();
     }
     

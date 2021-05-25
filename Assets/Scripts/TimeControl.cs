@@ -111,7 +111,7 @@ public class TimeControl : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.tag != "Scientist")
                 {
-                    lastObjectHit.GetComponent<Outline>().OutlineWidth = 0f;
+                    outline.OutlineWidth = 0f;
                     isHovered = false;
                 }
             }

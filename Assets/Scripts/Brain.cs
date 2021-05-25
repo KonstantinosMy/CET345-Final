@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Brain : MonoBehaviour
 {
-    bool redHit = false;
-    bool greenHit = false;
-    bool blueHit = false;
-    bool yellowHit = false;
+    [SerializeField] bool redHit = false;
+    [SerializeField] bool greenHit = false;
+    [SerializeField] bool blueHit = false;
+    [SerializeField] bool yellowHit = false;
 
     public bool purpleC;
     public bool cyanC;
@@ -23,6 +23,7 @@ public class Brain : MonoBehaviour
     public GameObject ray1;
     public GameObject ray2;
 
+    public AudioSource audioSource;
 
     void Update()
     {
@@ -38,8 +39,8 @@ public class Brain : MonoBehaviour
 
         Debug.Log("red" + redHit);
         Debug.Log("green" + greenHit);
-        Debug.Log("blui" + blueHit);
-        Debug.Log("yel" + yellowHit);
+        Debug.Log("blue" + blueHit);
+        Debug.Log("yellow" + yellowHit);
 
         CheckForCombo();
 
@@ -52,6 +53,8 @@ public class Brain : MonoBehaviour
         {
             scientist.GetComponent<Scientist2>().isAllowed2 = true;
         }
+
+
     }
 
     void CheckForCombo()
@@ -60,24 +63,30 @@ public class Brain : MonoBehaviour
         {
             purpleC = true;
             purple.color = Color.green;
+
         }
 
         if (redHit && yellowHit)
         {
             orangeC = true;
             orange.color = Color.green;
+
         }
 
         if (blueHit && greenHit)
         {
             cyanC = true;
             cyan.color = Color.green;
+
         }
 
         if (greenHit && yellowHit)
         {
             limeC = true;
             lime.color = Color.green;
+
         }
     }
+
 }
+

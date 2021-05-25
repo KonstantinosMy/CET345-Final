@@ -39,21 +39,25 @@ public class LaserRayCast : MonoBehaviour
                 Debug.Log("Red hit");
                 redHit = true;
             }
-            else if (hit.collider.gameObject.tag == "Green")
+
+            if (hit.collider.gameObject.tag == "Green")
             {
                 Debug.Log("Green hit");
                 greenHit = true;
             }
-            else if (hit.collider.gameObject.tag == "Blue")
+
+            if (hit.collider.gameObject.tag == "Blue")
             {
                 Debug.Log("Blue hit");
                 blueHit = true;
             }
-            else if (hit.collider.gameObject.tag == "Yellow")
+
+            if (hit.collider.gameObject.tag == "Yellow")
             {
                 Debug.Log("Yellow hit");
                 yellowHit = true;
             }
+
         }
         else lr.SetPosition(1, transform.forward * 5000);
 

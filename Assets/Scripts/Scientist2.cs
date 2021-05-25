@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class Scientist2 : MonoBehaviour
 {

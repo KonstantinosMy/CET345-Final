@@ -133,7 +133,7 @@ public class FPSController : PortalTraveller {
         cam.transform.localEulerAngles = Vector3.right * smoothPitch;
 
     }
-
+    
     public override void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
         transform.position = pos;
         Vector3 eulerRot = rot.eulerAngles;
@@ -144,5 +144,5 @@ public class FPSController : PortalTraveller {
         velocity = toPortal.TransformVector (fromPortal.InverseTransformVector (velocity));
         Physics.SyncTransforms ();
     }
-
+    
 }
