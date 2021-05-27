@@ -9,6 +9,11 @@ public class Brain : MonoBehaviour
     [SerializeField] bool blueHit = false;
     [SerializeField] bool yellowHit = false;
 
+    [SerializeField] bool redHit1 = false;
+    [SerializeField] bool greenHit1 = false;
+    [SerializeField] bool blueHit1 = false;
+    [SerializeField] bool yellowHit1 = false;
+
     public bool purpleC;
     public bool cyanC;
     public bool limeC;
@@ -32,15 +37,20 @@ public class Brain : MonoBehaviour
         yellowHit = ray1.GetComponent<LaserRayCast>().yellowHit;
         blueHit = ray1.GetComponent<LaserRayCast>().blueHit;
 
-        redHit = ray2.GetComponent<LaserRayCast>().redHit;
-        greenHit = ray2.GetComponent<LaserRayCast>().greenHit;
-        yellowHit = ray2.GetComponent<LaserRayCast>().yellowHit;
-        blueHit = ray2.GetComponent<LaserRayCast>().blueHit;
+        redHit1 = ray2.GetComponent<LaserRayCast>().redHit;
+        greenHit1 = ray2.GetComponent<LaserRayCast>().greenHit;
+        yellowHit1 = ray2.GetComponent<LaserRayCast>().yellowHit;
+        blueHit1 = ray2.GetComponent<LaserRayCast>().blueHit;
 
         Debug.Log("red" + redHit);
         Debug.Log("green" + greenHit);
         Debug.Log("blue" + blueHit);
         Debug.Log("yellow" + yellowHit);
+
+        Debug.Log("red" + redHit1);
+        Debug.Log("green" + greenHit1);
+        Debug.Log("blue" + blueHit1);
+        Debug.Log("yellow" + yellowHit1);
 
         CheckForCombo();
 
@@ -59,33 +69,46 @@ public class Brain : MonoBehaviour
 
     void CheckForCombo()
     {
-        if (redHit && blueHit )
+        if ((redHit || redHit1) && (blueHit || blueHit1) )
         {
             purpleC = true;
             purple.color = Color.green;
-
+            resetColors();
         }
 
-        if (redHit && yellowHit)
+        if ((redHit || redHit1) && (yellowHit || yellowHit1))
         {
             orangeC = true;
             orange.color = Color.green;
-
+            resetColors();
         }
 
-        if (blueHit && greenHit)
+        if ((greenHit || greenHit1) && (blueHit || blueHit1))
         {
             cyanC = true;
             cyan.color = Color.green;
-
+            resetColors();
         }
 
-        if (greenHit && yellowHit)
+        if ((greenHit || greenHit1) && (yellowHit || yellowHit1))
         {
             limeC = true;
             lime.color = Color.green;
-
+            resetColors();
         }
+    }
+
+    void resetColors()
+    {
+        ray1.GetComponent<LaserRayCast>().redHit = false;
+        ray1.GetComponent<LaserRayCast>().blueHit = false;
+        ray1.GetComponent<LaserRayCast>().yellowHit = false;
+        ray1.GetComponent<LaserRayCast>().greenHit = false;
+
+        ray2.GetComponent<LaserRayCast>().redHit = false;
+        ray2.GetComponent<LaserRayCast>().blueHit = false;
+        ray2.GetComponent<LaserRayCast>().yellowHit = false;
+        ray2.GetComponent<LaserRayCast>().greenHit = false;
     }
 
 }

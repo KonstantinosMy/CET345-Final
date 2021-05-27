@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pickUp : MonoBehaviour
 {
-    public GameObject brain;
+   // public GameObject brain;
     bool inRange;
     public GameObject pressE;
     public GameObject item;

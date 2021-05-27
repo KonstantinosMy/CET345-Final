@@ -10,6 +10,9 @@ public class Admin_Logic : MonoBehaviour
     public bool adminPanelOn = false;
     public TMP_Text countdownTxt;
     private bool isInTrigger = false;
+
+    public AudioSource consoleAudio;
+    public AudioSource countDown;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class Admin_Logic : MonoBehaviour
             Debug.Log("Player interacted with Admin Panel");
             adminImage.color = Color.green;
             adminPanelOn = true;
+            consoleAudio.Play();
+            countDown.Play();
         }
     }
 

@@ -12,11 +12,14 @@ public class ButtonPress : MonoBehaviour
     public GameObject b;
     public GameObject y;
     public GameObject g;
-
+    public AudioSource push;
+    public AudioSource click;
     void Update()
     {
         if (inCollider && Input.GetKeyDown(KeyCode.E))
         {
+            push.Play();
+            click.Play();
             correspondingPillar.SetBool("isTriggered", true);   
         }
         if (Input.GetKeyUp(KeyCode.E))

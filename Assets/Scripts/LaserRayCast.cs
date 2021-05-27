@@ -11,6 +11,8 @@ public class LaserRayCast : MonoBehaviour
     public bool greenHit = false;
     public bool blueHit = false;
     public bool yellowHit = false;
+
+
     void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -21,6 +23,10 @@ public class LaserRayCast : MonoBehaviour
     {
         CheckIfRayCastHit();
 
+        Debug.Log("red" + redHit);
+        Debug.Log("green" + greenHit);
+        Debug.Log("blue" + blueHit);
+        Debug.Log("yellow" + yellowHit);
     }
 
     void CheckIfRayCastHit()
@@ -36,27 +42,32 @@ public class LaserRayCast : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "Red")
             {
-                Debug.Log("Red hit");
+                
                 redHit = true;
             }
+ 
 
             if (hit.collider.gameObject.tag == "Green")
             {
-                Debug.Log("Green hit");
+               
                 greenHit = true;
             }
+  
 
             if (hit.collider.gameObject.tag == "Blue")
             {
-                Debug.Log("Blue hit");
+                
                 blueHit = true;
             }
 
+
             if (hit.collider.gameObject.tag == "Yellow")
             {
-                Debug.Log("Yellow hit");
+
                 yellowHit = true;
             }
+
+
 
         }
         else lr.SetPosition(1, transform.forward * 5000);

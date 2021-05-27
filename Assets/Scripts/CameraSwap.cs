@@ -10,6 +10,7 @@ public class CameraSwap : MonoBehaviour
     bool inCamera;
     bool inRange;
     public GameObject pressE;
+    public AudioSource click;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && inCamera)
@@ -18,6 +19,7 @@ public class CameraSwap : MonoBehaviour
             inCamera = false;
             inRange = false;
             Player.enabled = true;
+            click.Play();
 
         }
 
@@ -26,6 +28,7 @@ public class CameraSwap : MonoBehaviour
             Player.enabled = false;
             CCTV.enabled = true;
             inCamera = true;
+            click.Play();
         }
     }
     public void OnTriggerEnter(Collider other)

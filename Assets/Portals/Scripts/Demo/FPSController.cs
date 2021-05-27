@@ -34,6 +34,7 @@ public class FPSController : PortalTraveller {
     float lastGroundedTime;
     bool disabled;
     public Animator playerAnimator;
+
     void Start () {
         cam = Camera.main;
         if (lockCursor) {
@@ -81,18 +82,21 @@ public class FPSController : PortalTraveller {
             playerAnimator.SetBool("isWalking", false);
             playerAnimator.SetBool("isIdling", true);
             playerAnimator.SetBool("isRunning", false);
+
         }
         else if (currentSpeed == 5f)
         {
             playerAnimator.SetBool("isWalking", false);
             playerAnimator.SetBool("isIdling", false);
             playerAnimator.SetBool("isRunning", true);
+
         }
         else if (currentSpeed == 3f)
         {
             playerAnimator.SetBool("isWalking", true);
             playerAnimator.SetBool("isIdling", false);
             playerAnimator.SetBool("isRunning", false);
+
         }
 
         verticalVelocity -= gravity * Time.deltaTime;
