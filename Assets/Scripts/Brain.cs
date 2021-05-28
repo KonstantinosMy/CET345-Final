@@ -28,8 +28,12 @@ public class Brain : MonoBehaviour
     public GameObject ray1;
     public GameObject ray2;
 
-    public AudioSource audioSource;
+    public bool badVariable = true;
 
+    private void Start()
+    {
+        badVariable = true;
+    }
     void Update()
     {
         redHit = ray1.GetComponent<LaserRayCast>().redHit;
@@ -54,7 +58,7 @@ public class Brain : MonoBehaviour
 
         CheckForCombo();
 
-        if (purpleC && orangeC)
+        if (purpleC && orangeC && badVariable)
         {
             scientist.GetComponent<Scientist2>().isAllowed1 = true;
         }

@@ -8,7 +8,7 @@ public class ConsoleLogic2 : MonoBehaviour
     public Image consoleImage;
     public Animator door3Animation;
     public GameObject scientist;
-
+    public bool inCollider;
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +26,7 @@ public class ConsoleLogic2 : MonoBehaviour
             consoleImage.color = Color.green;
             door3Animation.SetBool("isOpen", true);
             scientist.GetComponent<Scientist2>().isAllowed1 = false;
+            inCollider = true;
         }
     }
 

@@ -19,6 +19,8 @@ public class Scientist2 : MonoBehaviour
     private bool inPoint1;
     private bool inPoint1Cur;
 
+    private bool inPoint2=false;
+    public GameObject console2;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -59,7 +61,10 @@ public class Scientist2 : MonoBehaviour
         else if (!isAllowed2 && inPoint1)
         {
             door2.SetBool("isOpen", false);
-            GoToPoint1();
+        }
+        if (console2.GetComponent<ConsoleLogic2>().inCollider)
+        {
+            Stop();
         }
         
     }
